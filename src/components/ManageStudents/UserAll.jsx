@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdminLayout from "../../layout/adminLayout";
 
 const UserAll = () => {
   // Initial students data
@@ -83,69 +84,83 @@ const UserAll = () => {
   };
 
   return (
-    <div className="p-6 overflow-hidden">
-      {/* Dashboard Heading */}
-      <h1 className="text-xl sm:text-4xl font-bold text-center text-gray-800 mb-6">
-        Student Management Dashboard
-      </h1>
+    <AdminLayout>
+      <div className="p-6 overflow-hidden">
+        {/* Dashboard Heading */}
+        <h1 className="text-xl sm:text-4xl font-bold text-center text-gray-800 mb-6">
+          Student Management Dashboard
+        </h1>
 
-      {/* Table Heading */}
-      <h2 className="text-lg sm:text-2xl font-bold mb-4">Student Table</h2>
+        {/* Table Heading */}
+        <h2 className="text-lg sm:text-2xl font-bold mb-4">Student Table</h2>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border border-gray-400">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Picture</th>
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Student Name</th>
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Email</th>
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Enrollment Year</th>
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Major</th>
-              <th className="border text-nowrap border-gray-400 px-4 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((student) => (
-              <tr
-                key={student.id}
-                className="text-center hover:bg-gray-100 transition-colors duration-200"
-              >
-                <td className="border border-gray-400 px-4 py-2">
-                  <img
-                    src={student.picture}
-                    alt="Student"
-                    className="w-10 h-10 object-cover mx-auto sm:w-20 sm:h-20 sm:object-cover sm:mx-auto"
-                  />
-                </td>
-
-                <td className="border border-gray-400 px-4 py-2">
-                  {student.name}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  {student.email}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  {student.enrollmentYear}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  {student.major}
-                </td>
-                <td className="border border-gray-400 px-4 py-2">
-                  {/* Delete Button */}
-                  <button
-                    className="bg-red-500 text-white px-4 py-1 rounded"
-                    onClick={() => handleDelete(student.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+        {/* Table */}
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full border-collapse border border-gray-400">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Picture
+                </th>
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Student Name
+                </th>
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Email
+                </th>
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Enrollment Year
+                </th>
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Major
+                </th>
+                <th className="border text-nowrap border-gray-400 px-4 py-2">
+                  Actions
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {students.map((student) => (
+                <tr
+                  key={student.id}
+                  className="text-center hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <td className="border border-gray-400 px-4 py-2">
+                    <img
+                      src={student.picture}
+                      alt="Student"
+                      className="w-10 h-10 object-cover mx-auto sm:w-20 sm:h-20 sm:object-cover sm:mx-auto"
+                    />
+                  </td>
+
+                  <td className="border border-gray-400 px-4 py-2">
+                    {student.name}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {student.email}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {student.enrollmentYear}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {student.major}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {/* Delete Button */}
+                    <button
+                      className="bg-red-500 text-white px-4 py-1 rounded"
+                      onClick={() => handleDelete(student.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 };
 

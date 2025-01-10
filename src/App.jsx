@@ -1,47 +1,36 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Sidebars from "./pages/Sidebars";
-import LibraryManagement from "./components/Dashboard/LibraryManagement";
-import BookManagement from "./components/Dashboard/BookManagement";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AddNew from "./components/AddNew/AddNew";
-import AddNewStudent from "./components/ManageStudents/AddNewStudent";
-import UserAll from "./components/ManageStudents/UserAll";
-import Plans from "./components/Subscription/Plans";
-import PurchaseHistory from "./components/Subscription/PurchaseHistory";
-import Profile from "./components/Profile/Profile";
+import BookManagement from "./components/Dashboard/BookManagement";
+import LibraryManagement from "./components/Dashboard/LibraryManagement";
 import Login from "./components/Login/Login";
 import LogOut from "./components/LogOut/LogOut";
-
+import AddNewStudent from "./components/ManageStudents/AddNewStudent";
+import UserAll from "./components/ManageStudents/UserAll";
+import Profile from "./components/Profile/Profile";
+import Plans from "./components/Subscription/Plans";
+import PurchaseHistory from "./components/Subscription/PurchaseHistory";
 
 const App = () => {
   return (
     <Router>
-      <Navbar /> 
-      <div className="flex" >
-      <Sidebars />
-        <div className="flex-1 p-6 h-screen overflow-auto">
-          <Routes>
-            <Route path="/librarymanagement" element={<LibraryManagement />} />
-            <Route path="/bookmanagement" element={<BookManagement />} />
-            <Route path="/addnew" element={<AddNew />} />
-            <Route path="/addnewstudent" element={<AddNewStudent />} />
-            <Route path="/userall" element={<UserAll />} />
-            <Route path="/plans" element={<Plans />} />
-            <Route path="/purchasehistory" element={<PurchaseHistory />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<LogOut />} />
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/admin/librarymanagement"
+          element={<LibraryManagement />}
+        />
+        <Route path="/admin/bookmanagement" element={<BookManagement />} />
+        <Route path="/admin/addnew" element={<AddNew />} />
+        <Route path="/admin/addnewstudent" element={<AddNewStudent />} />
+        <Route path="/admin/userall" element={<UserAll />} />
+        <Route path="/admin/plans" element={<Plans />} />
+        <Route path="/admin/purchasehistory" element={<PurchaseHistory />} />
+        <Route path="/admin/profile" element={<Profile />} />
+        <Route path="/admin" element={<Login />} />
+        <Route path="/admin/logout" element={<LogOut />} />
+      </Routes>
     </Router>
   );
 };
 
 export default App;
-
-
-
-
-
